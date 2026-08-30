@@ -1,0 +1,50 @@
+name: Build Debug APK
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v6
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Gradle
+        uses: gradle/actions/setup-gradle@v4
+
+      - name: Make gradlew executable
+        run: chmod +x ./gradlew
+
+      - name: Build debug APK
+        run: |
+          set -eo pipefail
+          ./gradlew assembleDebug --stacktrace --warning-mode all 2>&1 | tee gradle-output.log
+
+      - name: Upload debug APK
+        if: success()
+        uses: actions/upload-artifact@v7
+        with:
+          name: compresso-debug-apk
+          path: app/build/outputs/apk/debug/*.apk
+          if-no-files-found: error
+
+      - name: Capture failure log
+        if: failure()
+        run: |
+          touch gradle-output.log
+          tail -c 60000 gradle-output.log > tail.log
+          CONTENT=$(base64 -w 0 tail.log)
+          curl -s -X PUT \
+            -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            "https://api.github.com/repos/${{ github.repository }}/contents/ci-logs/${{ github.run_id }}.log" \
+            -d "{\"message\":\"ci log ${{ github.run_id }}\",\"content\":\"$CONTENT\"}"

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Compresso</string>
+
+    <string name="home_empty_title">No files yet</string>
+    <string name="home_empty_subtitle">Add photos or videos to compress them losslessly, with zero quality loss</string>
+    <string name="home_add_files">Add files</string>
+    <string name="home_drop_hint">Drop files here</string>
+    <string name="home_queue_title">Queue</string>
+    <string name="home_start_all">Compress all</string>
+    <string name="home_clear_completed">Clear completed</string>
+    <string name="home_summary_saved">Saved %1$s across %2$d files</string>
+    <string name="home_summary_ratio">Average reduction %1$s</string>
+
+    <string name="mode_standard">Standard</string>
+    <string name="mode_extreme">Extreme</string>
+    <string name="mode_label">Mode</string>
+
+    <string name="status_pending">Waiting</string>
+    <string name="status_analyzing">Analyzing</string>
+    <string name="status_compressing">Compressing</string>
+    <string name="status_verifying">Verifying</string>
+    <string name="status_done">Done</string>
+    <string name="status_failed">Failed</string>
+    <string name="status_skipped">No gain</string>
+    <string name="status_cancelled">Cancelled</string>
+
+    <string name="action_retry">Retry</string>
+    <string name="action_remove">Remove</string>
+    <string name="action_cancel">Cancel</string>
+    <string name="action_share">Share</string>
+    <string name="action_save">Save</string>
+    <string name="action_details">Details</string>
+    <string name="action_close">Close</string>
+    <string name="action_settings">Settings</string>
+    <string name="action_back">Back</string>
+
+    <string name="detail_original_size">Original size</string>
+    <string name="detail_compressed_size">Compressed size</string>
+    <string name="detail_reduction">Reduction</string>
+    <string name="detail_codec">Codec</string>
+    <string name="detail_container">Container</string>
+    <string name="detail_method">Method</string>
+    <string name="detail_time_taken">Time taken</string>
+    <string name="detail_verification">Verification</string>
+    <string name="detail_verification_passed">Bit-perfect match confirmed</string>
+    <string name="detail_verification_failed">Verification failed, original kept</string>
+    <string name="detail_resolution">Resolution</string>
+    <string name="detail_color_depth">Color depth</string>
+    <string name="detail_metadata">Metadata</string>
+    <string name="detail_metadata_preserved">Preserved</string>
+    <string name="detail_metadata_stripped">Stripped</string>
+
+    <string name="settings_title">Settings</string>
+    <string name="settings_compression_mode">Compression mode</string>
+    <string name="settings_compression_mode_desc">Extreme mode tries every applicable strategy and keeps the smallest verified result. It can take much longer</string>
+    <string name="settings_preserve_metadata">Preserve metadata</string>
+    <string name="settings_preserve_metadata_desc">Keep EXIF and other embedded metadata in compressed files</string>
+    <string name="settings_allow_conversion">Allow format conversion</string>
+    <string name="settings_allow_conversion_desc">Switch container or codec when it produces a smaller lossless result</string>
+    <string name="settings_delete_originals">Delete originals when done</string>
+    <string name="settings_delete_originals_desc">Remove the source file once a compressed copy is verified</string>
+    <string name="settings_theme">Appearance</string>
+    <string name="settings_theme_system">System</string>
+    <string name="settings_theme_light">Light</string>
+    <string name="settings_theme_dark">Dark</string>
+    <string name="settings_about">About</string>
+    <string name="settings_about_body">Compresso re-encodes each file with the most efficient lossless codec available for its format, verifies the result decodes back to identical data, and only replaces the original if the result is smaller. Video is repackaged losslessly at the container level, copying every stream byte for byte.</string>
+    <string name="settings_reset_stats">Reset statistics</string>
+
+    <string name="stats_total_saved">Total saved</string>
+    <string name="stats_files_processed">Files processed</string>
+    <string name="stats_best_ratio">Best reduction</string>
+
+    <string name="notification_channel_name">Compression progress</string>
+    <string name="notification_title_processing">Compressing %1$d of %2$d</string>
+    <string name="notification_title_done">Compression finished</string>
+    <string name="notification_action_cancel">Cancel</string>
+
+    <string name="permission_notifications_rationale">Allow notifications to see live compression progress</string>
+
+    <string name="error_generic">Something went wrong while processing this file</string>
+    <string name="error_unsupported_format">This format isn\'t supported yet</string>
+    <string name="error_verification_failed">The compressed output didn\'t match the original exactly, so the original was kept</string>
+    <string name="error_no_gain">No lossless method produced a smaller file, so the original was kept</string>
+    <string name="save_success">Saved to gallery</string>
+    <string name="save_failed">Couldn\'t save to gallery</string>
+
+    <string name="cd_app_icon">Compresso icon</string>
+    <string name="cd_file_thumbnail">File thumbnail</string>
+    <string name="cd_add_files">Add files</string>
+    <string name="cd_settings">Open settings</string>
+    <string name="cd_back">Navigate back</string>
+    <string name="cd_status_icon">Status icon</string>
+</resources>
